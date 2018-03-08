@@ -8,7 +8,7 @@ ROOTDIR="$SCRIPTDIR/../../"
 cd $ROOTDIR
 
 echo "Creating openwhisk namespace"
-kkubectl create namespace openwhisk
+kubectl create namespace openwhisk
 
 
 couchdbHealthCheck () {
