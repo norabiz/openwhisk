@@ -3,9 +3,8 @@
 set -x
 
 SCRIPTDIR=$(cd $(dirname "$0") && pwd)
-ROOTDIR="$SCRIPTDIR/../../"
 
-cd $ROOTDIR
+cd $SCRIPTDIR
 
 echo "Creating openwhisk namespace"
 kubectl create namespace openwhisk
@@ -103,8 +102,10 @@ statefulsetHealthCheck () {
 
 # setup couchdb
 echo "Deploying couchdb"
-kubectl apply -f kubernetes/couchdb/couchdb.yml
+pushd kubernetes/couchdb
+kubectl apply -f couchdb.yml
 couchdbHealthCheck
+popd
 
 
 # setup redis
