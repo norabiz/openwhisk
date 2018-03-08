@@ -17,7 +17,7 @@ pushd kubernetes/couchdb
 kubectl apply -f couchdb.yml
 popd
 
-sleep 30
+sleep 45
 kubectl -n openwhisk get pods
 
 # setup redis
@@ -26,7 +26,7 @@ pushd kubernetes/redis
   kubectl apply -f redis.yml
 popd
 
-sleep 20
+sleep 30
 
 # setup apigateway
 echo "Deploying apigateway"
