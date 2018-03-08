@@ -38,9 +38,7 @@ spec:
       - name: dockersock
         hostPath:
           path: "/var/run/docker.sock"
-      - name: apparmor
-        hostPath:
-          path: "/usr/lib/x86_64-linux-gnu/libapparmor.so.1"
+
 
       containers:
       - name: invoker
@@ -156,8 +154,7 @@ spec:
           mountPath: "/var/run/docker.sock"
         - name: dockerrootdir
           mountPath: "/containers"
-        - name: apparmor
-          mountPath: "/usr/lib/x86_64-linux-gnu/libapparmor.so.1"
+
         lifecycle:
           postStart:
             exec:
