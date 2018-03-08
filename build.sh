@@ -103,11 +103,9 @@ statefulsetHealthCheck () {
 
 # setup couchdb
 echo "Deploying couchdb"
-pushd kubernetes/couchdb
-  kubectl apply -f couchdb.yml
+kubectl apply -f kubernetes/couchdb/couchdb.yml
+couchdbHealthCheck
 
-  couchdbHealthCheck
-popd
 
 # setup redis
 echo "Deploying redis"
