@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ow-ingress
+  namespace: openwhisk
+spec:
+  backend:
+    serviceName: nginx
+    servicePort: https-api
+  backend:
+    serviceName: apigateway
+    servicePort: mgmt
